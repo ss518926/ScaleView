@@ -87,8 +87,10 @@ public class HorizontalScaleScrollView extends BaseScaleView {
         //滑动的刻度
         int tmpCountScale = (int) Math.rint((double) finalX / (double) mScaleMargin); //四舍五入取整
         //总刻度
-        mCountScale = tmpCountScale + countScale + mMin;
-        if (mScrollListener != null) { //回调方法
+        int nowScale = tmpCountScale + countScale + mMin;
+        //总刻度
+        if (mScrollListener != null && mCountScale != nowScale) { //回调方法
+            mCountScale = nowScale;
             mScrollListener.onScaleScroll(mCountScale);
         }
         canvas.drawLine(countScale * mScaleMargin + finalX, mRectHeight,
@@ -129,6 +131,14 @@ public class HorizontalScaleScrollView extends BaseScaleView {
                 return true;
         }
         return super.onTouchEvent(event);
+    }
+
+    public void setFinal(int mCountScale) {
+        if (mCountScale < mMin) mCountScale = mMin;
+        if (mCountScale > mMax) mCountScale = mMax;
+        int finalX = (mCountScale - mMidCountScale) * mScaleMargin;
+        mScroller.setFinalX(finalX); //纠正指针位置
+        postInvalidate();
     }
 
 }
