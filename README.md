@@ -37,22 +37,7 @@ scaleScrollView.setOnScrollListener(new OnScrollListener() {
 });
 ```
 
-Download
-----
-Gradle：
-```
-allprojects {
-		repositories {
-			...
-			maven { url "https://jitpack.io" }
-		}
-}
 
-dependencies {
-    compile 'com.github.LichFaker:ScaleView:-SNAPSHOT'
-}
-```
- 
 
 License
 --------
