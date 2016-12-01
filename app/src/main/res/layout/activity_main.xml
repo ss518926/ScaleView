@@ -14,8 +14,7 @@
         android:layout_marginTop="100dp"
         app:scale_view_height="8dp"
         app:scale_view_margin="5dp"
-        app:scale_view_max="100000"
-        app:scale_view_min="50" />
+        app:scale_view_min="0" />
 
     <EditText
         android:id="@+id/horizontalScaleValue"

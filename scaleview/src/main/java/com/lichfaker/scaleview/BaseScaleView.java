@@ -79,7 +79,7 @@ public abstract class BaseScaleView extends View {
         // 获取自定义属性
         TypedArray ta = getContext().obtainStyledAttributes(attrs, ATTR);
         mMin = ta.getInteger(SCALE_MIN, 0);
-        mMax = ta.getInteger(SCALE_MAX, 200);
+        mMax = ta.getInteger(SCALE_MAX, 500);
         mScaleMargin = ta.getDimensionPixelOffset(SCALE_MARGIN, 15);
         mScaleHeight = ta.getDimensionPixelOffset(SCALE_HEIGHT, 20);
         ta.recycle();

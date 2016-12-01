@@ -27,12 +27,14 @@ public class MainActivity extends AppCompatActivity {
         scaleScrollView.setOnScrollListener(new HorizontalScaleScrollView.OnScrollListener() {
             @Override
             public void onScaleScroll(int scale) {
-                mTvHorizontalScale.setText("" + scale);
+                if (scale < 0)
+                    scale = 0;
+                mTvHorizontalScale.setText(String.format("%d", scale * 1000));
             }
         });
 
 
-        setPricePoint(mTvHorizontalScale, 100000);
+        setPricePoint(mTvHorizontalScale, 5000*1000);
     }
 
     public void setPricePoint(final EditText editText, final float max) {
@@ -89,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
                 if (value > max) {
                     position = (int) (max);
                 }
-                scaleScrollView.setFinal(position);
+                scaleScrollView.setFinal(position/1000);
                 //控制游标变化
             }
 

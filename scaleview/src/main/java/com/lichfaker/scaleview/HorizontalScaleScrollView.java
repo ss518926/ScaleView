@@ -45,7 +45,7 @@ public class HorizontalScaleScrollView extends BaseScaleView {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        int height=MeasureSpec.makeMeasureSpec(mRectHeight, MeasureSpec.AT_MOST);
+        int height = MeasureSpec.makeMeasureSpec(mRectHeight, MeasureSpec.AT_MOST);
         super.onMeasure(widthMeasureSpec, height);
         mScaleScrollViewRange = getMeasuredWidth();
         mTempScale = mScaleScrollViewRange / mScaleMargin / 2 + mMin;
@@ -66,7 +66,7 @@ public class HorizontalScaleScrollView extends BaseScaleView {
             if (i % 10 == 0) { //整值
                 canvas.drawLine(i * mScaleMargin, mRectHeight, i * mScaleMargin, mRectHeight - mScaleMaxHeight, paint);
                 //整值文字
-                canvas.drawText(String.valueOf(k), i * mScaleMargin, mRectHeight - mScaleMaxHeight - 20, paint);
+                canvas.drawText(String.valueOf(k * 1000), i * mScaleMargin, mRectHeight - mScaleMaxHeight - 20, paint);
                 k += 10;
             } else {
                 canvas.drawLine(i * mScaleMargin, mRectHeight, i * mScaleMargin, mRectHeight - mScaleHeight, paint);
